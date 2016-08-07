@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection"content="telephone=no, email=no" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="MobileOptimized" content="320">
+	<meta name="screen-orientation" content="portrait">
+	<meta name="x5-orientation" content="portrait">
+	<meta name="full-screen" content="yes">
+	<meta name="x5-fullscreen" content="true">
+	<meta name="browsermode" content="application">
+	<meta name="x5-page-mode" content="app">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,maximum-scale=1.0, user-scalable=no">
+	<title>仿ios下拉效果</title>
+	<link rel="stylesheet" href="css/pickscroll.css">
+   	<script type="text/javascript" src="js/datascroll.js"></script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+	
+	<div class="input_box">	
+		<span class="input_tit">省市区</span>
+		<input type="text" value="上海 长宁区"  class="input_data" readonly >
+	</div>
+
+	<div class="data-fixed">
+		<div class="rebox">
+			<div class="qury-tit">
+				<p>请选择</p>
+				<span class="ico_datasure">确定</span>
+			</div>
+			<div class="demobox">
+				<div class="col-province picker-box">
+					<div class="picker-view">
+						<div class="picker-item">广东省1</div>
+						<div class="picker-item">广东省2</div>
+						<div class="picker-item">3</div>
+						<div class="picker-item">4</div>
+						<div class="picker-item">广东省5</div>
+						<div class="picker-item">6</div>
+						<div class="picker-item">7</div>
+						<div class="picker-item">8</div>
+						<div class="picker-item">9</div>
+						<div class="picker-item">10</div>
+					</div>
+				</div>
+				<div class="col-city picker-box">
+					<div class="picker-view">
+						<div class="picker-item">广东省</div>
+						<div class="picker-item">广东省</div>
+						<div class="picker-item">3</div>
+						<div class="picker-item">4</div>
+						<div class="picker-item picker-item-selected">广东省</div>
+						<div class="picker-item">6</div>
+						<div class="picker-item">7</div>
+						<div class="picker-item">8</div>
+						<div class="picker-item">9</div>
+						<div class="picker-item">10</div>
+					</div>
+				</div>
+				<div class="col-county picker-box">
+					<div class="picker-view">
+						<div class="picker-item">广东省</div>
+						<div class="picker-item">广东省</div>
+						<div class="picker-item">3</div>
+						<div class="picker-item">4</div>
+						<div class="picker-item picker-item-selected">广东省</div>
+						<div class="picker-item">6</div>
+						<div class="picker-item">7</div>
+						<div class="picker-item">8</div>
+						<div class="picker-item">9</div>
+						<div class="picker-item">10</div>
+					</div>
+				</div>
+				<div class="hightline"></div>
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		var pickProvince = new pickScroll(".col-province",{
+							dataInput: ".input_data",
+							endCallback: function(){
+								pickCity._reffer();	
+								pickCounty._reffer();
+							}
+					  })
+		var pickCity = new pickScroll(".col-city",{
+							endCallback: function(){
+								pickCounty._reffer();
+							}
+					  })
+		var pickCounty = new pickScroll(".col-county",{
+
+					  })
+	</script>
+
+</div>
+</body>
+</html>
